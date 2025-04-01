@@ -1,6 +1,6 @@
 # 😄 smile CLI
 
-**smile** stands for **Simple Markup Language** – a declarative language to describe user interfaces.  
+**smile** and also **SML** stands for **Simple Markup Language** – a declarative language to describe user interfaces.  
 This CLI tool is the core of the SML ecosystem. It helps you scaffold UI projects, compile SML into real Compose code, build native apps, and export through powerful plugins.
 
 > "Don't code it. Don't build it. Just... smile it."
