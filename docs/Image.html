@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Image</title></head><body>
+<!-- WORDRESS PART -->
+<h1>Image</h1>
+<p>Displays an image from a local file or remote URL.</p>
+<h2>Properties</h2>
+<figure class="sml-block-table">
+<table class="has-fixed-layout">
+<tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td>src</td><td>String</td><td></td><td>The path or URL of the image. Example: 'images/photo.png'.</td></tr>
+<tr><td>weight</td><td>Int</td><td>0</td><td>Determines how much space the image takes relative to other elements in the same layout. Use 0 for no weight-based resizing.</td></tr>
+<tr><td>width</td><td>Int</td><td>0</td><td>Fixed width of the image in dp. Use 0 for automatic sizing.</td></tr>
+<tr><td>height</td><td>Int</td><td>0</td><td>Fixed height of the image in dp. Use 0 for automatic sizing.</td></tr>
+<tr><td>scale</td><td>String</td><td></td><td>Defines how the image should be scaled within its bounds. Options include: 'Fit', 'Fill', 'Crop', 'Inside'.</td></tr>
+<tr><td>alignment</td><td>String</td><td>Center</td><td>How the image is aligned inside its layout container. Options: Start, Center, End, Top, Bottom.</td></tr>
+</table>
+</figure>
+<h2>Allowed Roots</h2><ul>
+<li><a href="/page/">Page</a></li>
+<li><a href="/column/">Column</a></li>
+<li><a href="/row/">Row</a></li>
+<li><a href="/lazycontent/">LazyContent</a></li>
+<li><a href="/lazynocontent/">LazyNoContent</a></li>
+</ul>
+<style>
+.sml-block-table {
+overflow-x:auto;
+}
+.sml-block-table table {
+border-collapse:collapse;
+width:100%
+}
+.sml-block-table thead {
+border-bottom:3px solid
+}
+.sml-block-table tfoot {
+border-top:3px solid
+}
+.sml-block-table td,
+.sml-block-table th {
+border:1px solid;
+ padding:.5em
+}
+</style>
+<!-- WORDRESS PART -->
+</body></html>
