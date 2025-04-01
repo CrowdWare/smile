@@ -65,7 +65,6 @@ fun createNewProject(projectName: String) {
     File(root, "app.sml").writeText(
         """
         App {
-            theme: "theme.sml"
             name: "$projectName"
             
             Theme {
