@@ -1,0 +1,33 @@
+```sml
+App {
+    smlVersion: "1.1"
+    name: "Book Listing App"
+    description: "An app to list and explore books."
+    icon: "book_icon.png"
+    id: "book.listing.app"
+    author: "Your Name"
+
+    Theme {
+        primary: "#FFD700"
+        onPrimary: "#000000"
+        background: "#FFFFFF"
+        onBackground: "#000000"
+    }
+
+    Part {
+        src: "about.md"
+    }
+}
+
+Deployment {
+    File {
+        path: "home.md"
+    }
+    File {
+        path: "about.md"
+    }
+    File {
+        path: "contact.md"
+    }
+}
+```

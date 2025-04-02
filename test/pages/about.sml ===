@@ -1,0 +1,27 @@
+```sml
+Page {
+    smlVersion: "1.1"
+    title: "About"
+    scrollable: "true"
+    padding: "16"
+
+    Column {
+        verticalArrangement: "Top"
+        horizontalAlignment: "CenterHorizontally"
+        padding: "16"
+
+        Markdown {
+            part: "about.md"
+            color: "onBackground"
+            fontSize: 14
+            fontWeight: "Normal"
+            textAlign: "Justify"
+        }
+
+        Button {
+            label: "Home"
+            link: "page:home"
+        }
+    }
+}
+```

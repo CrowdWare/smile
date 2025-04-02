@@ -15,6 +15,8 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation(kotlin("stdlib"))
     implementation("com.github.h0tk3y.betterParse:better-parse:0.4.4")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")       // HTTP-Client
+    implementation("org.json:json:20240303")
 }
 
 application {

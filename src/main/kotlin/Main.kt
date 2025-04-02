@@ -20,6 +20,7 @@
 package at.crowdware.nocode
 
 import at.crowdware.nocode.at.crowdware.nocode.utils.*
+import java.io.File
 
 fun printUsage() {
     println("""
@@ -54,6 +55,20 @@ fun main(args: Array<String>) {
             } else {
                 createNewProject(name)
             }
+        }
+        "newai" -> {
+            val docs = generateCombinedContext(File("sml"))
+            /*
+            val session = AiSession()
+            session.warmUp(docs)
+
+            val layout = session.ask("Create a Page with a Column containing a Image and a Button")
+            println("🧠 Layout:\n$layout")
+
+            val extension = session.ask("Now add a Markdown block at the top")
+            println("➕ Extension:\n$extension")
+            */
+            generateSmlProject("Baue eine App mit der man Bücher auflisten kann.", docs, File("test") )
         }
         "compose" -> {
             composeProject()
