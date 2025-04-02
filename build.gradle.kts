@@ -48,7 +48,7 @@ tasks.register<Exec>("nativeImage") {
     val outputName = "smile"
     val jarPath = layout.buildDirectory.file("libs/${project.name}-${project.version}-all.jar").get().asFile
 
-    dependsOn("jar")
+    dependsOn("shadowJar")
 
     commandLine = listOf(
         "native-image",

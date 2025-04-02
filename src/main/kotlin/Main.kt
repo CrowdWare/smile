@@ -58,6 +58,15 @@ fun main(args: Array<String>) {
         "compose" -> {
             composeProject()
         }
+        "build" -> {
+            build()
+        }
+        "export" -> {
+            println("smile export is not yet implemented")
+        }
+        "preview" -> {
+            println("smile preview is not yet implemented")
+        }
         "doc" -> {
             val src = args.getOrNull(1)
             val out = args.getOrNull(2)
@@ -67,7 +76,7 @@ fun main(args: Array<String>) {
                 document(src, out)
             }
         }
-        "version" -> println("smile CLI v0.1.0")
+        "version" -> println("smile CLI v1.0.0")
         else -> printUsage()
     }
 }

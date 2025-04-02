@@ -19,7 +19,7 @@
 
 package at.crowdware.nocode.at.crowdware.nocode.utils
 
-fun composeProject() {
+fun build() {
     println("❌ We are still working on that feature.")
-    println("✅ Compose app created.")
+    println("✅ Build ready.")
 }
