@@ -2,6 +2,7 @@
 build/
 test
 plugins
+smile
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
