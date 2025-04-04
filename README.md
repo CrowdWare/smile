@@ -113,6 +113,42 @@ Plugins are defined via .jar and plugin.json and can be reused in both tools.
 • Plugins – Some are commercial (license required)  
 
 ---
+## Plugin to Wordpress
+we can now write a Wordpress plugin to include the HTML output from the docs folder into a page in Wordpress.
+
+```php
+<?php
+/**
+ * Plugin Name: SML Renderer
+ * Description: Lädt ein gerendertes SML-HTML von GitHub Pages und zeigt den <body>-Inhalt.
+ * Version: 1.0
+ * Author: Crowdware
+ */
+
+function render_sml_shortcode($atts) {
+    $a = shortcode_atts([
+        'src' => '',
+    ], $atts);
+
+    if (empty($a['src'])) return '<!-- SML: src fehlt -->';
+
+    $url = 'https://crowdware.github.io/smile/' . ucfirst($a['src']) . '.html';
+
+    $html = @file_get_contents($url);
+    if (!$html) return "<!-- SML konnte nicht geladen werden: {$url} -->";
+
+    // <body> extrahieren
+    if (preg_match('/<body[^>]*>(.*?)<\/body>/is', $html, $matches)) {
+        return $matches[1];
+    } else {
+        return "<!-- Kein <body> im Ergebnis -->";
+    }
+}
+
+add_shortcode('sml-render', 'render_sml_shortcode');
+```
+
+---
 
 ## 🌐 Learn More
 • 🌍 Homepage: https://sml.it
