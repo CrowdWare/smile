@@ -41,6 +41,18 @@ fun document(source: String, outputDir: String) {
     val all = loadAllElementDefinitions(File(source))
     val childrenIndex = buildAllowedChildrenIndex(all)
 
+    // cleanup first
+    val out = File(outputDir)
+    if (out.exists() && out.isDirectory) {
+        out.listFiles()?.forEach { file ->
+            if (file.isDirectory) {
+                file.deleteRecursively()
+            } else {
+                file.delete()
+            }
+        }
+    }
+
     all.forEach { node ->
         smlToDoc(node, outputDir, childrenIndex)
     }
