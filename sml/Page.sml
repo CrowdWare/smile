@@ -2,7 +2,10 @@ ElementDefinition {
     name: "Page"
     description: "Base for the NoCodeDesigner page"
 
-
+    AllowedRoots {
+        Root { name: "App"}
+    }
+    
     Properties {
         Property {
             name: "smlVersion"

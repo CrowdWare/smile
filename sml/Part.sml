@@ -3,10 +3,6 @@ ElementDefinition {
     plugin: "Epub3"
     description: "It's a reference to a markdown file. Which can be referenced in a MarkdownElement."
 
-    AllowedRoots {
-        Root { name: "App"}
-    }
-
     Properties {
         Property {
             name: "src"
