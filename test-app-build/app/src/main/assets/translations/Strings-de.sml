@@ -1,3 +1,0 @@
-Strings {
-    finished: "Abgeschlossen"
-}
