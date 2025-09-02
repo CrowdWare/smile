@@ -19,6 +19,7 @@
 
 package at.crowdware.nocode
 
+import at.crowdware.nocode.plugin.PluginManager
 import at.crowdware.nocode.at.crowdware.nocode.utils.*
 import java.io.File
 
@@ -29,9 +30,8 @@ fun printUsage() {
         Usage:
           smile new <project>           Create a new SML project
           smile compose <src>           Generate Compose UI code from SML
-          smile build [--target=...]    Build the project (wasm, android, desktop)
-          smile preview                 Start live preview (if supported)
-          smile export --plugin=...     Export via plugin (e.g. ebook3)
+          smile build <target>          Build the project (wasm, android, desktop)
+          smile export <plugin>         Export via plugin (e.g. ebook3)
           smile doc <src>               Generate doc files from sml definition code
           smile version                 Show version info
 
@@ -42,11 +42,22 @@ fun printUsage() {
 }
 
 
-fun main(args: Array<String>) {
+suspend fun main(args: Array<String>) {
     if (args.isEmpty()) {
         printUsage()
         return
     }
+
+    val home = System.getProperty("user.home")
+    val macPluginPath = "$home/Library/Application Support/NoCodeDesigner/plugins"
+    val pluginFolder = File(macPluginPath)
+    val loadedPlugins = PluginManager.loadAllFromPluginsFolder(pluginFolder)
+
+    println("✅ ${loadedPlugins.size} Plugins geladen.")
+    loadedPlugins.forEach {
+        println("🔌 Plugin: ${it.label} (${it.id})")
+    }
+
     when (args[0]) {
         "new" -> {
             val name = args.getOrNull(1)
@@ -77,10 +88,14 @@ fun main(args: Array<String>) {
             build()
         }
         "export" -> {
-            println("smile export is not yet implemented")
-        }
-        "preview" -> {
-            println("smile preview is not yet implemented")
+            val plugin = args.getOrNull(1)
+            val source = args.getOrNull(2)
+            val output = args.getOrNull(3)
+            if (plugin == null || source == null || output == null) {
+                printExportUsage()
+            } else {
+                exportProject(plugin, source, output)
+            }
         }
         "doc" -> {
             val src = args.getOrNull(1)
